@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private EditText editText;
     private boolean enable=false;
+    static CharSequence savedText;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,23 +22,33 @@ public class MainActivity extends AppCompatActivity {
 
         this.button=(Button)findViewById(R.id.button);
         this.editText=(EditText)findViewById(R.id.editText);
-    }
 
-    public void buttonClicked (View v){
 
-        editText.setEnabled(false);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (button.isPressed()){
-                    editText.setEnabled(true);
+
+                editText.setEnabled(false);
+
+                if (!enable) {
+                    enable = true;
+
                 } else {
-                    editText.setEnabled(false);
+                    enable = (false);
+
                 }
+                editText.setEnabled(enable);
+
+        
             }
+
+
         });
 
-
     }
+
+
+
+
 }
